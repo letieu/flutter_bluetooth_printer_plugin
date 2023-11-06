@@ -63,7 +63,8 @@ class FlutterBluetoothPrinter {
       srcHeight: imageHeight,
     );
 
-    img.Image src = img.decodeJpg(bytes)!;
+    Uint8List data = Uint8List.fromList(bytes);
+    img.Image src = img.decodeJpg(data) as img.Image;
 
     final profile = await CapabilityProfile.load();
     final generator = Generator(
